@@ -1,9 +1,11 @@
+import React from 'react';
+import { useRef } from 'react';
 import Nav from './components/Nav/';
 import Main from './components/Main';
 import SoundSelection from './components/SoundSelection';
 import DisplaySection from './components/DisplaySection';
 import WebgiViewer from './components/WebgiViewer';
-import { useRef } from 'react';
+import Loader from './components/Loader';
 
 function App() {
   const webgiViewerRef = useRef();
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <Loader />
       <div ref={contentRef} id="content">
         <Nav />
         <Main />

@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "description": "three.js iphone",
+  "author": "denghua <denghua.fm@foxmail.com>",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -32,6 +34,8 @@
     "@vitejs/plugin-react": "^3.1.0",
     "cross-env": "^7.0.3",
     "vite": "^4.1.0",
-    "webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-0.5.5.tgz"
-  }
+    "eslint": "^8.37.0",
+    "eslint-plugin-react": "^7.32.2"
+  },
+  "license": "MIT"
 }

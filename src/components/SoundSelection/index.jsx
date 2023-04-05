@@ -1,3 +1,5 @@
+import React from 'react';
+
 const SoundSelection = () => {
 
   const handleLearnMore = () => {
@@ -15,7 +17,7 @@ const SoundSelection = () => {
       <div className="body">
         <div className="sound-section-content content">
           <h2 className="title">New Sound System</h2>
-          <p className="text">Teel the base.</p>
+          <p className="text">Tell the base.</p>
           <span className="description">
             From $41.62/mo. for 24 mo. or $999 before train-in
           </span>

@@ -8,7 +8,6 @@ import {
   SSRPlugin,
   SSAOPlugin,
   BloomPlugin,
-  CanvasSnipperPlugin,
   AssetManagerBasicPopupPlugin,
   GammaCorrectionPlugin,
   mobileAndTabletCheck
@@ -102,9 +101,6 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
     await viewer.addPlugin(SSAOPlugin)
     await viewer.addPlugin(BloomPlugin)
 
-    // Add more plugins not available in base, like CanvasSnipperPlugin which has helpers to download an image of the canvas.
-    // await viewer.addPlugin(CanvasSnipperPlugin)
-
     // 添加所有插件后执行一次刷新Pipeline
     viewer.renderer.refreshPipeline()
 
@@ -147,7 +143,7 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
     // uiPlugin.setupPlugins<IViewerPlugin>(TonemapPlugin, CanvasSnipperPlugin)
   }, [])
 
-  // 第一次渲染时执行一次
+  // 组件初始化时执行一次
   useEffect(() => {
     setupViewer();
   }, [])
@@ -202,9 +198,7 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
     <div ref={canvasContainerRef} id="webgi-canvas-container">
       <canvas id="webgi-canvas" ref={canvasRef} />
       {
-        isPreviewMode && (
-          <button className="button" onClick={handleExit}>Exit</button>
-        )
+        isPreviewMode && (<button className="button" onClick={handleExit}>Exit</button>)
       }
     </div>
   )
