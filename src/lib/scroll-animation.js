@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 // 滚动动画函数
-export const scrollAnimation = (position, target, onUpdate) => {
+export const scrollAnimation = (position, target, isMobile, onUpdate) => {
   // 创建一个时间轴
   const timeLine = gsap.timeline();
 
@@ -14,9 +14,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
     /**
      * 对应webgi查看器上的相机位置/Animation/Camera Views/add current view/position
      */
-    x: -3.38,
-    y: -10.74,
-    z: -5.93,
+    x: isMobile? -7.0 : -3.38,
+    y: isMobile? -12.2 : -10.74,
+    z: isMobile? -6.0 : -5.93,
     scrollTrigger: {
       trigger: '.sound-section',
       // DOM / 视窗
@@ -28,9 +28,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
     onUpdate
   })
   .to(target, { // 设置相机的活动
-    x: 1.52,
-    y: 0.77,
-    z: -1.08,
+    x: isMobile? 0.7 : 1.52,
+    y: isMobile? 1.9 : 0.77,
+    z: isMobile? 0.7 : -1.08,
     scrollTrigger: {
       trigger: '.sound-section',
       start: "top bottom",
@@ -62,9 +62,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
   // 第一阶段动画完成
   // 第二阶段动画开始
   .to(position, {
-    x: 1.56,
-    y: 5.0,
-    z: 0.01,
+    x: isMobile? 9.36 : 1.56,
+    y: isMobile? 10.95 : 5.0,
+    z: isMobile? 0.09 : 0.01,
     scrollTrigger: {
       trigger: '.display-section', // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，模型位置变化
       start: "top bottom",
@@ -75,9 +75,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
     onUpdate
   })
   .to(target, {
-    x: -0.55,
-    y: 0.32,
-    z: 0.0,
+    x: isMobile? -1.62 : -0.55,
+    y: isMobile? 0.02 : 0.32,
+    z: isMobile? -0.06 : 0.0,
     scrollTrigger: { // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，相机位置变化
       trigger: '.display-section',
       start: "top bottom",
