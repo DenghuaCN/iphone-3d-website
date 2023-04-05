@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/three": "^0.139.0",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.5.5.tgz",
-    "gsap": "^3.11.5",
+    "gsap": "3.11.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.0.1",

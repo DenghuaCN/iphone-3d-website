@@ -1,4 +1,15 @@
-export default () => {
+const SoundSelection = () => {
+
+  const handleLearnMore = () => {
+    const element = document.querySelector('.display-section');
+
+    window.scrollTo({
+      top: element?.getBoundingClientRect().bottom,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <div className="sound-section wrapper">
       <div className="body">
@@ -12,7 +23,7 @@ export default () => {
             <li>
               <button className="button">Buy</button>
             </li>
-            <li className="link">
+            <li className="link" onClick={handleLearnMore}>
               Learn more
             </li>
           </ul>
@@ -21,3 +32,5 @@ export default () => {
     </div>
   )
 }
+
+export default SoundSelection;

@@ -8,7 +8,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
   // 开始动画
 
   // 设置目标的动画
-  timeLine.to(position, {
+  timeLine
+  // 第一阶段动画开始
+  .to(position, {
     /**
      * 对应webgi查看器上的相机位置/Animation/Camera Views/add current view/position
      */
@@ -25,18 +27,74 @@ export const scrollAnimation = (position, target, onUpdate) => {
     }, // 动画创建完毕
     onUpdate
   })
-
-  // 设置相机的活动
-  timeLine.to(target, {
+  .to(target, { // 设置相机的活动
     x: 1.52,
     y: 0.77,
     z: -1.08,
     scrollTrigger: {
       trigger: '.sound-section',
       start: "top bottom",
-      end: "top   top",
+      end: "top top",
       scrub: 2,
       immediateRender: false
     }
   })
+  .to('.jumbotron-section', { // 使jumbotron淡出（阻挡了canvas主体动画）
+    opacity: 0,
+    scrollTrigger: {
+      trigger: '.sound-section',
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    }
+  })
+  .to('.sound-section-content', { // sound-section时淡入显示
+    opacity: 1,
+    scrollTrigger: {
+      trigger: '.sound-section',
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    }
+  })
+  // 第一阶段动画完成
+  // 第二阶段动画开始
+  .to(position, {
+    x: 1.56,
+    y: 5.0,
+    z: 0.01,
+    scrollTrigger: {
+      trigger: '.display-section', // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，模型位置变化
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    },
+    onUpdate
+  })
+  .to(target, {
+    x: -0.55,
+    y: 0.32,
+    z: 0.0,
+    scrollTrigger: { // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，相机位置变化
+      trigger: '.display-section',
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    }
+  })
+  .to('.display-section', { // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，display-section的透明度随之变化
+    opacity: 1,
+    scrollTrigger: {
+      trigger: '.display-section',
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    }
+  })
+  // 第二阶段动画结束
 }
