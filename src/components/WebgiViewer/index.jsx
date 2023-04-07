@@ -23,7 +23,8 @@ import {
 } from "webgi";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { scrollAnimation } from "../../lib/scroll-animation";
+import {scrollAnimationDesktop} from "../../lib/scrollAnimation.desktop.js";
+import {scrollAnimationMobile} from '../../lib/scrollAnimation.mobile.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +39,7 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
   const canvasContainerRef = useRef(null); // webgi-canvas-container盒子ref
   const [isPreviewMode, setIsPreviewMode] = useState(false); // 是否处于预览模式(可移动模型)
 
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useRef(false);
 
   useImperativeHandle(ref, () => ({ // 子组件利用useImperativeHandle可以让父组件输出任意数据
     triggerPreview() {
@@ -72,10 +73,15 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
   }))
 
   // 不需要每次渲染都执行
-  const memoizedScrollAnimation = useCallback((position, target, isMobile, onUpdate) => {
+  const memorizedScrollAnimationDesktop = useCallback((position, target, onUpdate) => {
     if (!position || !target || !onUpdate) return;
-    scrollAnimation(position, target, isMobile, onUpdate);
+    scrollAnimationDesktop(position, target, onUpdate);
   }, [])
+  const memorizedScrollAnimationMobile = useCallback((position, target, onUpdate) => {
+    if (!position || !target || !onUpdate) return;
+    scrollAnimationMobile(position, target, onUpdate);
+  })
+
 
   // 不需要每次渲染时都初始化查看器，使用useCallBack hook
   const setupViewer = useCallback(async () => {
@@ -86,7 +92,7 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
 
     setViewerRef(viewer);
     const isMobileOrTablet = mobileAndTabletCheck();
-    setIsMobile(isMobileOrTablet);
+    isMobile.current = isMobileOrTablet;
 
 
     // 添加基本插件
@@ -147,7 +153,11 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
       }
     })
 
-    memoizedScrollAnimation(position, target, isMobile, onUpdate);
+    if (isMobile.current) {
+      memorizedScrollAnimationMobile(position, target, onUpdate);
+    } else {
+      memorizedScrollAnimationDesktop(position, target, onUpdate);
+    }
 
     // 添加用于调试的UI界面
     // const uiPlugin = await viewer.addPlugin(TweakpaneUiPlugin)
