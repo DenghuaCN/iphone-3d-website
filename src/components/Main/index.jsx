@@ -1,7 +1,8 @@
+import React from 'react';
 import Iphone from '../../assets/images/iphone-14.jpg';
 import HoldingIphone from '../../assets/images/iphone-hand.png';
 
-export default () => {
+const Main = () => {
   const handleScrollToMore = () => {
     const soundSection = document.querySelector('.sound-section');
 
@@ -34,3 +35,5 @@ export default () => {
     </div>
   )
 }
+
+export default Main;

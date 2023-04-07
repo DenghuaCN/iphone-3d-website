@@ -1,4 +1,13 @@
-import { useRef, useState, useCallback, forwardRef, useImperativeHandle, useEffect } from "react"
+import React from 'react';
+import {
+  useRef,
+  useState,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+  useEffect
+} from "react"
+import PropTypes from 'prop-types';
 import {
   ViewerApp, // View接口，用于创建查看器
   AssetManagerPlugin, // 用于处理资源的下载、管理、缓存、解析、加载和添加到场景。可以添加扩展以加载不同的文件类型以及导出纹理、材料和 GLTF 模型。
@@ -19,6 +28,8 @@ import { scrollAnimation } from "../../lib/scroll-animation";
 gsap.registerPlugin(ScrollTrigger);
 
 const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react组件，接收的参数是一个 render函数，函数签名为render(props, ref)，第二个参数将其接受的 ref 属性转发到render返回的组件中
+  WebgiViewer.displayName = 'WebgiViewer';
+
   const canvasRef = useRef(null); // 查看器ref
   const [viewerRef, setViewerRef] = useState(null);
   const [targetRef, setTargetRef] = useState(null);
@@ -203,5 +214,10 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
     </div>
   )
 })
+
+// https://www.freecodecamp.org/chinese/news/how-to-use-proptypes-in-react/
+WebgiViewer.propTypes = {
+  contentRef: PropTypes.object
+};
 
 export default WebgiViewer;

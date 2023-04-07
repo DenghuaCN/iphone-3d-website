@@ -3,7 +3,7 @@ import Logo from '../../assets/images/logo.svg';
 import Search from '../../assets/images/Search.svg';
 import Store from '../../assets/images/store.svg';
 
-export default () => (
+const Nav = () => (
   (
     <nav className='nav-wrapper'>
       <div className='nav-content'>
@@ -55,3 +55,5 @@ export default () => (
     </nav>
   )
 )
+
+export default Nav;
