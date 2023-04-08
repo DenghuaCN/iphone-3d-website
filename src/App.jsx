@@ -6,6 +6,7 @@ import SoundSelection from './components/SoundSelection';
 import DisplaySection from './components/DisplaySection';
 import WebgiViewer from './components/WebgiViewer';
 import Loader from './components/Loader';
+import Footer from './components/Footer';
 
 function App() {
   const webgiViewerRef = useRef();
@@ -24,7 +25,8 @@ function App() {
         <Nav />
         <Main />
         <SoundSelection />
-        <DisplaySection triggerPreview={handlePreview} />
+        <DisplaySection />
+        <Footer triggerPreview={handlePreview}  />
       </div>
 
       <WebgiViewer contentRef={contentRef} ref={webgiViewerRef} />

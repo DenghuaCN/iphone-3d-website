@@ -12,9 +12,9 @@ export const scrollAnimationMobile = (position, target, onUpdate) => {
     /**
      * 对应webgi查看器上的相机位置/Animation/Camera Views/add current view/position
      */
-    x: -7.0,
-    y: -12.2,
-    z: -6.0,
+    x: -11.48,
+    y: -8.42,
+    z: -8.8,
     scrollTrigger: {
       trigger: '.sound-section',
       // DOM / 视窗
@@ -26,9 +26,9 @@ export const scrollAnimationMobile = (position, target, onUpdate) => {
     onUpdate
   })
   .to(target, { // 设置相机的活动
-    x: 0.7,
-    y: 1.9,
-    z: 0.7,
+    x: 0.276,
+    y: 0.711,
+    z: 0.119,
     scrollTrigger: {
       trigger: '.sound-section',
       start: "top bottom",
@@ -60,8 +60,8 @@ export const scrollAnimationMobile = (position, target, onUpdate) => {
   // 第一阶段动画完成
   // 第二阶段动画开始
   .to(position, {
-    x: 9.36,
-    y: 10.95,
+    x: 10.55,
+    y: 7.62,
     z: 0.09,
     scrollTrigger: {
       trigger: '.display-section', // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，模型位置变化
@@ -73,9 +73,9 @@ export const scrollAnimationMobile = (position, target, onUpdate) => {
     onUpdate
   })
   .to(target, {
-    x: -1.62,
-    y: 0.02,
-    z: -0.06,
+    x: -1.621,
+    y: -0.025,
+    z: -0.024,
     scrollTrigger: { // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，相机位置变化
       trigger: '.display-section',
       start: "top bottom",
@@ -95,4 +95,30 @@ export const scrollAnimationMobile = (position, target, onUpdate) => {
     }
   })
   // 第二阶段动画结束
+  // 第三阶段动画开始
+  .to(position, {
+    x: 15.94,
+    y: -1.17,
+    z: -7.00,
+    scrollTrigger: {
+      trigger: '.footer-section', // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，模型位置变化
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    },
+    onUpdate
+  })
+  .to(target, {
+    x: 0.112,
+    y: 0.570,
+    z: -0.07,
+    scrollTrigger: { // 当display-section DOM的页面位置与视窗位置发生变化的时候(具体为start end中配置)，相机位置变化
+      trigger: '.footer-section',
+      start: "top bottom",
+      end: "top top",
+      scrub: 2,
+      immediateRender: false
+    }
+  })
 }

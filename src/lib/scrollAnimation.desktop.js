@@ -10,13 +10,13 @@ export const scrollAnimationDesktop = (position, target, onUpdate) => {
   // 设置目标的动画
   timeLine
   // 第一阶段动画开始
-  .to(position, {
+  .to(position, {  // 设置相机坐标
     /**
      * 对应webgi查看器上的相机位置/Animation/Camera Views/add current view/position
      */
-    x: -3.38,
-    y: -10.74,
-    z: -5.93,
+    x: 11.7,
+    y: -0.55,
+    z: 0.81,
     scrollTrigger: {
       trigger: '.sound-section',
       // DOM / 视窗
@@ -27,10 +27,10 @@ export const scrollAnimationDesktop = (position, target, onUpdate) => {
     }, // 动画创建完毕
     onUpdate
   })
-  .to(target, { // 设置相机的活动
-    x: 1.52,
-    y: 0.77,
-    z: -1.08,
+  .to(target, { // 设置模型位置
+    x: 1.58,
+    y: -0.15,
+    z: 1.58,
     scrollTrigger: {
       trigger: '.sound-section',
       start: "top bottom",
@@ -97,4 +97,38 @@ export const scrollAnimationDesktop = (position, target, onUpdate) => {
     }
   })
   // 第二阶段动画结束
+  // 第三阶段动画开始
+  .to(position, {
+    x: 9.83,
+    y: -0.69,
+    z: -7.14,
+    scrollTrigger: {
+      trigger: '.footer-section',
+      start: 'top bottom',
+      end: 'top top',
+      scrub: 2,
+      immediateRender: false
+    },
+    onUpdate
+  })
+  .to(target, {
+    x: 1.08,
+    y: -0.13,
+    z: 1.17,
+    scrollTrigger: {
+      trigger: '.footer-section',
+      start: 'top bottom',
+      end: 'top top',
+      scrub: 2,
+      immediateRender: false
+    }
+  })
+  .to('.footer-section', {
+    trigger: '.footer-section',
+    start: 'top bottom',
+    end: 'top top',
+    opacity: 1,
+    scrub: 2,
+    immediateRender: false
+  })
 }

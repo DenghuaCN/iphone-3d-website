@@ -3,10 +3,14 @@ import React from 'react';
 const SoundSelection = () => {
 
   const handleLearnMore = () => {
-    const element = document.querySelector('.display-section');
-
-    window.scrollTo({
-      top: element?.getBoundingClientRect().bottom,
+    // const element = document.querySelector('.display-section');
+    // window.scrollTo({
+    //   top: element.getBoundingClientRect().bottom,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // })
+    window.scrollBy({
+      top: window.innerHeight,
       left: 0,
       behavior: 'smooth'
     })
@@ -23,10 +27,7 @@ const SoundSelection = () => {
           </span>
           <ul className="links">
             <li>
-              <button className="button">Buy</button>
-            </li>
-            <li className="link" onClick={handleLearnMore}>
-              Learn more
+              <button className="button" onClick={handleLearnMore}>Click Me</button>
             </li>
           </ul>
         </div>

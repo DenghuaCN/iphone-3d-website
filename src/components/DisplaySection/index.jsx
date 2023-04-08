@@ -1,11 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const DisplaySection = ({ triggerPreview }) => {
+const DisplaySection = () => {
 
-  const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
+  const handleScrollToFooter = () => {
+    // const element = document.querySelector('.footer-section');
+    // const topValue = element.getBoundingClientRect().bottom + element.getBoundingClientRect().height;
+    // window.scrollTo({
+    //   top: topValue,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // })
+    window.scrollBy({
+      top: window.innerHeight,
       left: 0,
       behavior: 'smooth'
     })
@@ -18,15 +25,10 @@ const DisplaySection = ({ triggerPreview }) => {
       <span className="description">
         A display that&quot;s up to 2x brighter in the sun.
       </span>
-      <button className="button" onClick={triggerPreview}>Try me!</button>
-      <button className="back-button" onClick={handleScrollToTop}>Top</button>
+      <button className="button" onClick={handleScrollToFooter}>Click Me</button>
     </div>
   )
 }
-
-DisplaySection.propTypes = {
-  triggerPreview: PropTypes.func
-};
 
 
 export default DisplaySection;

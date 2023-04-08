@@ -185,9 +185,9 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
 
     // 重新应用2阶段动画最后位置与相机视角 (注意position变量应为positionRef)
     gsap.to(positionRef, {
-      x: isMobile? 9.36 : 1.56,
-      y: isMobile? 10.95 : 5.0,
-      z: isMobile? 0.09 : 0.01,
+      x: isMobile.current? 15.94 : 9.83,
+      y: isMobile.current? -1.17 : -0.69,
+      z: isMobile.current? -7.00 : -7.14,
       scrollTrigger: {
         trigger: '.display-section',
         start: "top bottom",
@@ -202,9 +202,9 @@ const WebgiViewer = forwardRef((props, ref) => { // forwardRef返回值是react�
     })
 
     gsap.to(targetRef, { // (注意target变量应为targetRef)
-      x: isMobile? -1.62 : -0.55,
-      y: isMobile? 0.02 : 0.32,
-      z: isMobile? 0.06 : 0.0,
+      x: isMobile.current? 0.112 : 1.08,
+      y: isMobile.current? 0.570 : -0.13,
+      z: isMobile.current? -0.07 : 1.17,
       scrollTrigger: {
         trigger: '.display-section',
         start: "top bottom",

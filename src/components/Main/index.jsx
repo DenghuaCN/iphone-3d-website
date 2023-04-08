@@ -5,7 +5,6 @@ import HoldingIphone from '../../assets/images/iphone-hand.png';
 const Main = () => {
   const handleScrollToMore = () => {
     const soundSection = document.querySelector('.sound-section');
-
     window.scrollTo({
       top: soundSection.getBoundingClientRect().top,
       left: 0,
@@ -25,10 +24,7 @@ const Main = () => {
 
       <ul className='links'>
         <li>
-          <button className='button'>Buy</button>
-        </li>
-        <li>
-          <a className='link' onClick={handleScrollToMore}>Learn More</a>
+          <button className='button' onClick={handleScrollToMore}>Click Me</button>
         </li>
       </ul>
       <img className='iphone-img' src={HoldingIphone} alt="iPhone" />
